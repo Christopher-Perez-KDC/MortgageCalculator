@@ -1,0 +1,16 @@
+﻿@model MortgageCalculator.Models.MortgageCalculatorModel
+
+@{
+    ViewBag.Title = "Mortgage Calculation Result";
+}
+
+<h2>Mortgage Calculation Result</h2>
+
+<div>
+    <p>Loan Amount: @Model.LoanAmount.ToString("C")</p>
+    <p>Interest Rate: @Model.InterestRate.ToString("P")</p>
+    <p>Loan Term (Years): @Model.LoanTermYears</p>
+    <p>Monthly Payment: @ViewBag.MonthlyPayment.ToString("C")</p>
+</div>
+
+@Html.ActionLink("Back to Input", "Index")

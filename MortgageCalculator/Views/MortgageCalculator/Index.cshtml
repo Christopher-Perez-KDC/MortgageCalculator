@@ -1,0 +1,24 @@
+﻿@model MortgageCalculator.Models.MortgageCalculatorModel
+
+@{
+    ViewBag.Title = "Mortgage Calculator";
+}
+
+<h2>Mortgage Calculator</h2>
+
+@using (Html.BeginForm("Calculate", "MortgageCalculator", FormMethod.Post))
+{
+    @Html.LabelFor(model => model.LoanAmount)
+    @Html.TextBoxFor(model => model.LoanAmount)
+    <br />
+
+    @Html.LabelFor(model => model.InterestRate)
+    @Html.TextBoxFor(model => model.InterestRate)
+    <br />
+
+    @Html.LabelFor(model => model.LoanTermYears)
+    @Html.TextBoxFor(model => model.LoanTermYears)
+    <br />
+
+    <input type="submit" value="Calculate" />
+}
