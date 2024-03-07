@@ -7,9 +7,14 @@
 
 <form asp-action="Calculate" method="post">
     <div>
-        <label asp-for="LoanAmount">Loan Amount:</label>
-        <input asp-for="LoanAmount" />
-        <span asp-validation-for="LoanAmount"></span>
+        <label asp-for="PurchasePrice">Purchase Price:</label>
+        <input asp-for="PurchasePrice" />
+        <span asp-validation-for="PurchasePrice"></span>
+    </div>
+    <div>
+        <label asp-for="DownAmount">Down Payment(Dollar amount$):</label>
+        <input asp-for="DownAmount" />
+        <span asp-validation-for="DownAmount"></span>
     </div>
     <div>
         <label asp-for="InterestRate">Interest Rate (%):</label>
