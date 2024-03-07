@@ -3,30 +3,23 @@ using MortgageCalculator.Models;
 
 namespace MortgageCalculator.Controllers
 {
+
     public class MortgageCalculatorController : Controller
     {
-        // GET: MortgageCalculator
-        public ActionResult Index()
+        public IActionResult Index()
         {
             return View();
         }
 
-        // POST: MortgageCalculator/Calculate
         [HttpPost]
-        public ActionResult Calculate(MortgageCalculatorModel model)
+        public IActionResult Calculate(MortgageCalculatorModel model)
         {
             if (ModelState.IsValid)
             {
-                decimal monthlyPayment = model.CalculateMonthlyPayment();
-                ViewBag.MonthlyPayment = monthlyPayment;
-
-                // Redirect to the Calculate view
+                model.Calculate(); // Perform calculation
                 return View("Calculate", model);
             }
-
-            // If model state is not valid, return to the input form view (Index)
-            return View("Index", model);
+            return View("Index", model); // Return to index with validation errors
         }
     }
-
-    }
+}

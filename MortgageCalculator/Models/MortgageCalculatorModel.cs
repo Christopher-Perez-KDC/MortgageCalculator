@@ -2,20 +2,23 @@
 {
     public class MortgageCalculatorModel
     {
+        public double LoanAmount { get; set; }
+        public double InterestRate { get; set; }
+        public int LoanTermMonths { get; set; }
 
-        public decimal LoanAmount { get; set; }
-        public decimal InterestRate { get; set; } 
-        public int LoanTermYears { get; set; } 
+        public double MonthlyPayment { get; private set; }
+        public double TotalPayment { get; private set; }
 
-        // calculate monthly payment
-        public decimal CalculateMonthlyPayment()
+        public void Calculate()
         {
-            decimal monthlyInterestRate = InterestRate / 12 / 100;
-            int totalPayments = LoanTermYears * 12; 
+            double monthlyInterestRate = InterestRate / 100 / 12;
+            double totalMonths = LoanTermMonths;
+            double loanAmount = LoanAmount;
 
-            decimal monthlyPayment = (LoanAmount * monthlyInterestRate) /
-                                      (1 - (decimal)Math.Pow(1 + (double)monthlyInterestRate, -totalPayments));
-            return monthlyPayment;
+            double monthlyPayment = loanAmount * monthlyInterestRate / (1 - Math.Pow(1 + monthlyInterestRate, -totalMonths));
+            MonthlyPayment = Math.Round(monthlyPayment, 2);
+
+            TotalPayment = Math.Round(monthlyPayment * totalMonths, 2);
         }
     }
 }

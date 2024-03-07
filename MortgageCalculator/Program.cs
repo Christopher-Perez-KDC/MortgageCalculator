@@ -22,6 +22,6 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=mortgagecalculator}/{action=Index}/{id?}");
+    pattern: "{controller=MortgageCalculator}/{action=Index}/{id?}");
 
 app.Run();
