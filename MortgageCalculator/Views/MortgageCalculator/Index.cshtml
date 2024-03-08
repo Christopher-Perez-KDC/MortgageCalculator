@@ -3,9 +3,17 @@
     ViewData["Title"] = "Mortgage";
 }
 
-<h2>Mortgage Calculator</h2>
-
-<form asp-action="Calculate" method="post">
+    <h1>Mortgage Calculator</h1>
+<style>
+    /* CSS styles for the image */
+    .centered-image {
+        display: block; /* Make the image a block-level element */
+        margin: 0 auto; /* Center the image horizontally */
+        max-width: 100%; /* Set maximum width to 100% of the container */
+        max-height: 200px; /* Set maximum height to 200 pixels */
+    }
+</style>
+ <form asp-action="Calculate" method="post">
     <div>
         <label asp-for="PurchasePrice">Purchase Price:</label>
         <input asp-for="PurchasePrice" />
@@ -27,4 +35,7 @@
         <span asp-validation-for="LoanTermMonths"></span>
     </div>
     <button type="submit">Calculate</button>
-</form>
+
+    <img src="~/images/mortgage.jpg" alt="Mortgage Home" class="centered-image">
+
+</form> 

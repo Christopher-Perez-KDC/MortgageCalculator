@@ -4,7 +4,7 @@ html {
 
 @media (min-width: 768px) {
     html {
-        font-size: 16px;
+        font-size: 25px;
     }
 }
 
@@ -23,10 +23,11 @@ html {
 
 body {
     margin-bottom: 60px;
+    background-color: #808080;
 }
 
 .calculator {
-    background-color: #ffffff;
+    background-color: #808080;
     border-radius: 10px;
     padding: 20px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -40,14 +41,14 @@ button {
     width: calc(100% - 22px); /* Adjusted width */
     padding: 10px;
     margin: 5px 0;
-    border: 1px solid #dddddd;
+    border: 1px solid rgb(0, 0, 0);
     border-radius: 5px;
     box-sizing: border-box;
     font-size: 16px;
 }
 
 button {
-    background-color: #007bff;
-    color: #ffffff;
+    background-color: #236f09;
+    color: #000000;
     cursor: pointer;
 }
