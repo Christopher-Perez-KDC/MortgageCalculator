@@ -3,7 +3,7 @@
     public class MortgageCalculatorModel
     {
         public double LoanAmount { get; set; }
-        public double InterestRate { get; set; }
+        public decimal InterestRate { get; set; }
         public int LoanTermMonths { get; set; }
         public double PurchasePrice {  get; set; }
         public double DownAmount {  get; set; }
@@ -14,7 +14,7 @@
         {
             double purchasePrice = PurchasePrice;
             double downAmount = DownAmount;
-            double monthlyInterestRate = InterestRate / 100 / 12;
+            double monthlyInterestRate = (double)(InterestRate / 100 / 12);
             double totalMonths = LoanTermMonths;
             double loanAmount = (LoanAmount = (purchasePrice - downAmount));
 

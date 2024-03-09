@@ -7,8 +7,9 @@
     <p>Purchase Price : @Model.PurchasePrice.ToString("C")</p>
     <p>Down Payment : @Model.DownAmount.ToString("C")</p>
     <p>Loan Amount : @Model.LoanAmount.ToString("C")</p>
-    <p>Interest Rate : @Model.InterestRate.ToString("C")</p>
+    <p>Interest Rate: @(Model.InterestRate.ToString("") +("%"))</p>
     <p>Monthly Payment: @Model.MonthlyPayment.ToString("C")</p>
     <p>Total Payment: @Model.TotalPayment.ToString("C")</p>
 
+    <a href="@Url.Action("Index", "MortgageCalculator")" class="button bg-black" >Start Over </a>
 </div>

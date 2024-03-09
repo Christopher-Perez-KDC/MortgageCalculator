@@ -6,6 +6,12 @@ namespace MortgageCalculator.Controllers
 
     public class MortgageCalculatorController : Controller
     {
+        public IActionResult GoToIndex() //Redirects back to MortgageCalculator Index 
+        {
+            return RedirectToAction("Index");
+        }
+
+
         public IActionResult Index()
         {
             return View();
