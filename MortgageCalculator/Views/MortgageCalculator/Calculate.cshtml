@@ -6,10 +6,10 @@
     <h3>Results:</h3>
     <p>Purchase Price : @Model.PurchasePrice.ToString("C")</p>
     <p>Down Payment : @Model.DownAmount.ToString("C")</p>
-    <p>Down Payment as a % (percent) : @(Model.DownAmountPercent.ToString("") + ("%"))</p>
+    <p>Down Payment as a % (percent): @(Math.Round(Model.DownAmountPercent, 2))%</p>
     <p>Loan Amount : @Model.LoanAmount.ToString("C")</p>
     <p>Interest Rate : @(Model.InterestRate.ToString("") +("%"))</p>
-    <p>Terms : @(Model.Years.ToString("")+(" years")) + @(Model.InMonths.ToString("") + (" months"))</p>
+    <p>Terms : @(Model.Years.ToString("")+(" years")) / @(Model.InMonths.ToString("") + (" months"))</p>
     <p>Monthly Payment: @Model.MonthlyPayment.ToString("C")</p>
     <p>Total Payment: @Model.TotalPayment.ToString("C")</p>
 

@@ -19,8 +19,9 @@
             double purchasePrice = PurchasePrice;
             double downAmount = DownAmount;
             double monthlyInterestRate = (double)(InterestRate / 100 / 12);
-            double downPercent = (DownAmountPercent =(downAmount / purchasePrice) * 100);
-            
+           // double downPercent = (DownAmountPercent =(downAmount / purchasePrice) * 100);
+            double downPercent = Math.Round((DownAmountPercent = (downAmount / purchasePrice) * 100), 2);
+
             double totalMonths = (Years * 12);
             double loanAmount = (LoanAmount = (purchasePrice - downAmount));
             double inMonths = (InMonths = (totalMonths));
