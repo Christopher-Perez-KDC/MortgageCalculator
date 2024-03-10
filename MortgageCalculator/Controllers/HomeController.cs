@@ -17,7 +17,11 @@ namespace MortgageCalculator.Controllers
         {
             return View();
         }
-
+        public IActionResult GoToCalculate() //Redirects back to MortgageCalculator Index 
+        {
+             MortgageCalculatorController model = new MortgageCalculatorController();
+            return View(model);
+        }
         public IActionResult Privacy()
         {
             return View();
