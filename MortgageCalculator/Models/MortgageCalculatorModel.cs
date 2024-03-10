@@ -2,33 +2,34 @@
 {
     public class MortgageCalculatorModel
     {
-        public double LoanAmount { get; set; }
+        public decimal PurchasePrice { get; set; }
+        public decimal DownAmount { get; set; }
         public decimal InterestRate { get; set; }
-        
-        public double PurchasePrice {  get; set; }
-        public double DownAmount {  get; set; }
-        public double MonthlyPayment { get; private set; }
-        public double TotalPayment { get; private set; }
-        public double Years {  get; set; }
-        public double InMonths {  get; set; }
+        public decimal Years { get; set; }
 
-        public double DownAmountPercent {  get; set; }
+        public decimal MonthlyPayment { get; private set; }
+        public decimal TotalPayment { get; private set; }
+        public decimal LoanAmount { get; private set; }
+        public decimal InMonths { get; private set; }
+        public decimal DownAmountPercent { get; private set; }
+
         public void Calculate()
         {
-           
-            double purchasePrice = PurchasePrice;
-            double downAmount = DownAmount;
-            double monthlyInterestRate = (double)(InterestRate / 100 / 12);
-           // double downPercent = (DownAmountPercent =(downAmount / purchasePrice) * 100);
-            double downPercent = Math.Round((DownAmountPercent = (downAmount / purchasePrice) * 100), 2);
+            decimal purchasePrice = PurchasePrice;
+            decimal downAmount = DownAmount;
+            decimal monthlyInterestRate = InterestRate / 100 / 12;
+            decimal totalMonths = Years * 12;
+            decimal loanAmount = purchasePrice - downAmount;
+            decimal inMonths = totalMonths;
+            decimal downPercent = Math.Round((downAmount / purchasePrice) * 100, 2);
 
-            double totalMonths = (Years * 12);
-            double loanAmount = (LoanAmount = (purchasePrice - downAmount));
-            double inMonths = (InMonths = (totalMonths));
-            double monthlyPayment = loanAmount * monthlyInterestRate / (1 - Math.Pow(1 + monthlyInterestRate, -totalMonths));
+            decimal monthlyPayment = loanAmount * monthlyInterestRate / (1 - (decimal)Math.Pow((double)(1 + monthlyInterestRate), (double)-totalMonths));
             MonthlyPayment = Math.Round(monthlyPayment, 2);
 
             TotalPayment = Math.Round(monthlyPayment * totalMonths, 2);
+            LoanAmount = loanAmount;
+            InMonths = inMonths;
+            DownAmountPercent = downPercent;
         }
     }
 }

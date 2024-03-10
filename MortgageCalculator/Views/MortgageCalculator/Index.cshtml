@@ -3,7 +3,8 @@
     ViewData["Title"] = "Mortgage";
 }
 
-    <h1>Mortgage Calculator</h1>
+<h1>Mortgage Calculator</h1>
+
 <style>
     /* CSS styles for the image */
     .centered-image {
@@ -13,15 +14,16 @@
         max-height: 200px; /* Set maximum height to 200 pixels */
     }
 </style>
- <form asp-action="Calculate" method="post">
+
+<form id="mortgageForm" asp-action="Calculate" method="post">
     <div>
         <label asp-for="PurchasePrice">Purchase Price:</label>
-        <input asp-for="PurchasePrice" />
+        <input asp-for="PurchasePrice" id="purchasePrice" oninput="formatCurrency('purchasePrice')" />
         <span asp-validation-for="PurchasePrice"></span>
     </div>
     <div>
         <label asp-for="DownAmount">Down Payment(Dollar amount$):</label>
-        <input asp-for="DownAmount" />
+        <input asp-for="DownAmount" id="downAmount" oninput="formatCurrency('downAmount')" />
         <span asp-validation-for="DownAmount"></span>
     </div>
     <div>
@@ -34,8 +36,42 @@
         <input asp-for="Years" />
         <span asp-validation-for="Years"></span>
     </div>
-    <button type="submit">Calculate</button>
+    <button type="button" onclick="prepareAndSubmit()">Calculate</button>
 
     <img src="~/images/mortgage.jpg" alt="Mortgage Home" class="centered-image">
+</form>
 
-</form> 
+<script>
+    function formatCurrency(elementId) {
+        // Get the input element by its id
+        var input = document.getElementById(elementId);
+
+        // Remember cursor position
+        var cursorPosition = input.selectionStart;
+
+        // Get the value from the input and remove dollar sign and commas
+        var value = input.value.replace(/[\$,]/g, '');
+
+        // Format the value as a currency string
+        value = parseFloat(value).toFixed(2);
+        value = '$' + value.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+
+        // Set the input value with formatted currency
+        input.value = value;
+
+        // Restore cursor position
+        input.setSelectionRange(cursorPosition, cursorPosition);
+    }
+
+    function prepareAndSubmit() {
+        // Remove dollar sign and commas before submitting
+        var purchasePriceInput = document.getElementById('purchasePrice');
+        purchasePriceInput.value = purchasePriceInput.value.replace(/[\$,]/g, '');
+
+        var downAmountInput = document.getElementById('downAmount');
+        downAmountInput.value = downAmountInput.value.replace(/[\$,]/g, '');
+
+        // Submit the form
+        document.getElementById('mortgageForm').submit();
+    }
+</script>
