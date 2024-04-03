@@ -13,30 +13,33 @@
         max-height: 200px; /* Set maximum height to 200 pixels */
     }
 </style>
-<form asp-action="Calculate" method="post">
-    <div>
-        <label asp-for="PurchasePrice">Purchase Price:</label>
-        <input asp-for="PurchasePrice" />
-        <span asp-validation-for="PurchasePrice"></span>
-    </div>
-    <div>
-        <label asp-for="DownAmount">Down Payment(Dollar amount$):</label>
-        <input asp-for="DownAmount" />
-        <span asp-validation-for="DownAmount"></span>
-    </div>
-    <div>
-        <label asp-for="InterestRate">Interest Rate (%):</label>
-        <input asp-for="InterestRate" />
-        <span asp-validation-for="InterestRate"></span>
-    </div>
-    <div>
-        <label asp-for="Years">Loan Term (years):</label>
-        <input asp-for="Years" />
-        <span asp-validation-for="Years"></span>
-    </div>
-    <button type="submit">Calculate</button>
+<p>
+    <form asp-action="Calculate" method="post">
+        <div>
+            <label asp-for="PurchasePrice">Purchase Price:</label>
+            <input asp-for="PurchasePrice" />
+            <span asp-validation-for="PurchasePrice"></span>
+        </div>
+        <div>
+            <label asp-for="DownAmount">Down Payment(Dollar amount$):</label>
+            <input asp-for="DownAmount" />
+            <span asp-validation-for="DownAmount"></span>
+        </div>
+        <div>
+            <label asp-for="InterestRate">Interest Rate (%):</label>
+            <input asp-for="InterestRate" />
+            <span asp-validation-for="InterestRate"></span>
+        </div>
+        <div>
+            <label asp-for="Years">Loan Term (years):</label>
+            <input asp-for="Years" />
+            <span asp-validation-for="Years"></span>
+        </div>
+        <button type="submit">Calculate</button>
 
-    <img src="~/images/mortgage.jpg" alt="Mortgage Home" class="centered-image">
+        <img src="~/images/mortgage.jpg" alt="Mortgage Home" class="centered-image">
 
-</form>
+    </form>
+
+</p>
 
