@@ -19,23 +19,23 @@
         <form asp-action="Calculate" method="post">
             <div>
                 <label asp-for="PurchasePrice">Purchase Price:</label>
-                <input asp-for="PurchasePrice" placeholder="$250,000 (do not include $ , )" />
+                <input asp-for="PurchasePrice" required placeholder="$250,000 (do not include $ , )" />
                 <span asp-validation-for="PurchasePrice"></span>
                 
             </div>
             <div>
                 <label asp-for="DownAmount">Down Payment(Dollar amount$):</label>
-                <input asp-for="DownAmount" placeholder="$30,000 (do not include $ , )"/>
+                <input asp-for="DownAmount" required placeholder="$30,000 (do not include $ , )"/>
                 <span asp-validation-for="DownAmount"></span>
             </div>
             <div>
                 <label asp-for="InterestRate">Interest Rate (%):</label>
-                <input asp-for="InterestRate" placeholder ="6.75% (do not include %)"/>
+                <input asp-for="InterestRate" required placeholder="6.75% (do not include %)" />
                 <span asp-validation-for="InterestRate"></span>
             </div>
             <div>
                 <label asp-for="Years">Loan Term (years):</label>
-                <input asp-for="Years" placeholder=" 30 years / 15 years are most common"/>
+                <input asp-for="Years" required placeholder=" 30 years / 15 years are most common" />
                 <span asp-validation-for="Years"></span>
             </div>
             <button type="submit">Calculate</button>
