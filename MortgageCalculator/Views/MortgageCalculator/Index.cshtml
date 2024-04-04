@@ -19,34 +19,39 @@
         <form asp-action="Calculate" method="post">
             <div>
                 <label asp-for="PurchasePrice">Purchase Price:</label>
-                <input asp-for="PurchasePrice" />
+                <input asp-for="PurchasePrice" placeholder="$250,000 (do not include $ , )" />
                 <span asp-validation-for="PurchasePrice"></span>
+                
             </div>
             <div>
                 <label asp-for="DownAmount">Down Payment(Dollar amount$):</label>
-                <input asp-for="DownAmount" />
+                <input asp-for="DownAmount" placeholder="$30,000 (do not include $ , )"/>
                 <span asp-validation-for="DownAmount"></span>
             </div>
             <div>
                 <label asp-for="InterestRate">Interest Rate (%):</label>
-                <input asp-for="InterestRate" />
+                <input asp-for="InterestRate" placeholder ="6.75% (do not include %)"/>
                 <span asp-validation-for="InterestRate"></span>
             </div>
             <div>
                 <label asp-for="Years">Loan Term (years):</label>
-                <input asp-for="Years" />
+                <input asp-for="Years" placeholder=" 30 years / 15 years are most common"/>
                 <span asp-validation-for="Years"></span>
             </div>
             <button type="submit">Calculate</button>
-
-            <img src="~/images/mortgage.jpg" alt="Mortgage Home" class="centered-image">
+            <input type="reset" name="Clear Data">
+            <figure>
+                <img src="~/images/mortgage.jpg" alt="Mortgage Home" class="centered-image">
+            </figure>
             <ul>
-                <div> Things to be able to prepare to fill out this information </div>
+                <div> <strong><em>Things to be able to prepare to fill out this information</em></strong></div>
                 <p></p>
-                <li>"Purchase Price" Home much is the purchase price or the intended offer price </li>
-                <li>"Down Payment" How much is the amount of money you you plan to put down this can be as low as $0</li>
-                <li>"Interest Rate" What you would like as an interest rate to be able to get an estimated payment</li>
-                <li>"Years" How many long do you plan to finance the property. This is usually 30 years or 15 years traditionaly</li>
+                <ol>
+                    <li>"Purchase Price" Home much is the purchase price or the intended offer price </li>
+                    <li>"Down Payment" How much is the amount of money you you plan to put down this can be as low as $0</li>
+                    <li>"Interest Rate" What you would like as an interest rate to be able to get an estimated payment</li>
+                    <li>"Loan Term" How many long do you plan to finance the property. This is usually 30 years or 15 years traditionaly</li>
+                </ol>
                 <p></p>
                 <div> Remember this is just an estimate because it does not include taxes, insurance, PMI (private mortgage insurance), etc</div>
             </ul>
