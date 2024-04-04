@@ -12,6 +12,21 @@
     <p>Terms : @(Model.Years.ToString("")+(" years")) / @(Model.InMonths.ToString("") + (" months"))</p>
     <p>Monthly Payment: @Model.MonthlyPayment.ToString("C")</p>
     <p>Total Payment: @Model.TotalPayment.ToString("C")</p>
+    <p>
 
+
+
+    </p>
+    <p>
+        <div> **Remember this is just an estimate because it does not include taxes,</div>
+
+        <div>
+            insurance, PMI (private mortgage insurance), etc ***
+        </div>
+    </p>
+    <p>
+
+
+    </p>
     <a href="@Url.Action("Index", "MortgageCalculator")" class="button bg-black" >Start Over </a>
 </div>
