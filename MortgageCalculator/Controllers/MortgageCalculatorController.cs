@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using MortgageCalculator.Models;
-
+using MortgageCalculator.Repository;
 namespace MortgageCalculator.Controllers
 {
 
@@ -18,7 +18,7 @@ namespace MortgageCalculator.Controllers
         }
 
         [HttpPost]
-        public IActionResult Calculate(MortgageCalculatorModel model)
+        public IActionResult Calculate(MtgLoan model)
         {
             if (ModelState.IsValid)
             {
