@@ -14,5 +14,6 @@
         public decimal DownAmountPercent { get; set; }
         public decimal Taxes { get; set; }
         public decimal Insurance { get; set; }
+        public decimal PITI {  get; set; }
     }
 }

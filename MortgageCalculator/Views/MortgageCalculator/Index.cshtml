@@ -3,12 +3,12 @@
     ViewData["Title"] = "Mortgage";
 }<h1>Mortgage Loan<span class="badge text-bg-secondary"></span></h1>
 
-</div>
+
 <section>
     
     <form asp-action="Calculate" method="post">
         <div>
-            <label asp-for="PurchasePrice">Purchase Price: $</label>
+            <label asp-for="PurchasePrice"> Purchase Price: $</label>
             <input asp-for="PurchasePrice" required placeholder="$250,000" />
             <span asp-validation-for="PurchasePrice"></span>
         </div>
@@ -18,18 +18,30 @@
             <span asp-validation-for="DownAmount"></span>
         </div>
         <div>
-            <label asp-for="InterestRate">Interest(%):</label>
+            <label asp-for="InterestRate"> Interest(%):</label>
             <input asp-for="InterestRate" required placeholder="6.75% (do not include %)" />
             <span asp-validation-for="InterestRate"></span>
         </div>
         <div>
-            <label asp-for="Years">Loan Term (years):</label>
+            <label asp-for="Years"> Loan Term (years):</label>
             <input asp-for="Years" required placeholder="30 years" />
             <span asp-validation-for="Years"></span>
         </div>
         <div class="form-check form-switch">
             <input class="form-check-input" type="checkbox" role="switch" id="flexSwitchCheckDefault">
             <label class="form-check-label" for="flexSwitchCheckDefault">Include Taxes & Insurance</label>
+        </div>
+        <div id="additionalFields" class="hidden">
+            <div>
+                <label asp-for="Taxes">Taxes: $</label>
+                <input asp-for="Taxes" placeholder="Property Tax ($6,000)" />
+                <span asp-validation-for="Taxes"></span>
+            </div>
+            <div>
+                <label asp-for="Insurance">Insurance: $</label>
+                <input asp-for="Insurance" placeholder="Yearly Home Insurance" />
+            </div>
+
         </div>
 
         <button type="submit" name="Calculate" class="button-custom">Calculate</button>
@@ -50,4 +62,19 @@
             <div> Remember this is just an estimate because it does not include taxes, insurance, PMI (private mortgage insurance), etc</div>
         </ul>
     </form>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var checkbox = document.getElementById('flexSwitchCheckDefault');
+            var additionalFields = document.getElementById('additionalFields');
+
+            checkbox.addEventListener('change', function () {
+                if (checkbox.checked) {
+                    additionalFields.classList.remove('hidden');
+                } else {
+                    additionalFields.classList.add('hidden');
+                }
+            });
+        });
+    </script>
 </section>
+
