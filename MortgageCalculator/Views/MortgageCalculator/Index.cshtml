@@ -41,7 +41,15 @@
                 <label asp-for="Insurance">Insurance: $</label>
                 <input asp-for="Insurance" placeholder="Yearly Home Insurance" />
             </div>
-
+            <div>
+                <label asp-for="HOA">Homeowners association:(monthly) $</label>
+                <input asp-for="HOA" placeholder="$300" />
+            </div>
+            <div>
+               
+                <label asp-for="PMI">Private Mortgage Insurance:(monthly) $</label>
+                <input asp-for="PMI" placeholder="$" />
+            </div>
         </div>
 
         <button type="submit" name="Calculate" class="button-custom">Calculate</button>
@@ -49,18 +57,7 @@
         <figure>
             <img src="~/images/home.jpg" alt="Mortgage Home" class="centered-image">
         </figure>
-        <ul>
-            <div> <strong><em>Things to be able to prepare to fill out this information</em></strong></div>
-            <p></p>
-            <ol>
-                <li>"Purchase Price" Home much is the purchase price or the intended offer price </li>
-                <li>"Down Payment" How much is the amount of money you you plan to put down this can be as low as $0</li>
-                <li>"Interest Rate" What you would like as an interest rate to be able to get an estimated payment</li>
-                <li>"Loan Term" How many long do you plan to finance the property. This is usually 30 years or 15 years traditionaly</li>
-            </ol>
-            <p></p>
-            <div> Remember this is just an estimate because it does not include taxes, insurance, PMI (private mortgage insurance), etc</div>
-        </ul>
+       
     </form>
     <script>
         document.addEventListener('DOMContentLoaded', function () {
@@ -77,4 +74,3 @@
         });
     </script>
 </section>
-

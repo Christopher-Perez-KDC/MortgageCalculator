@@ -10,23 +10,14 @@
     <p>Loan Amount : @Model.LoanAmount.ToString("C")</p>
     <p>Interest Rate : @(Model.InterestRate.ToString("") +("%"))</p>
     <p>Terms : @(Model.Years.ToString("")+(" years")) / @(Model.InMonths.ToString("") + (" months"))</p>
-    <p>Monthly Payment: @Model.MonthlyPayment.ToString("C")</p>
+    <p>Monthly Tax: @(Model.Taxes.ToString("C"))</p>
+    <p>Monthly Insurance: @(Model.Insurance.ToString("C"))</p>
+    <p>Monthly HOA: @(Model.HOA.ToString("C"))</p>
+    <p>Montly PMI: @(Model.PMI.ToString("C"))</p>
+    <p>Loan: @Model.MonthlyPayment.ToString("C")</p>
+    <p>Total Monthly Payment: @(Model.PITI.ToString("C"))</p>
     <p>Total Payment: @Model.TotalPayment.ToString("C")</p>
-    <p>
 
-
-
-    </p>
-    <p>
-        <div> **Remember this is just an estimate because it does not include taxes,</div>
-
-        <div>
-            insurance, PMI (private mortgage insurance), etc ***
-        </div>
-    </p>
-    <p>
-
-
-    </p>
+    <p></p>
     <a href="@Url.Action("Index", "MortgageCalculator")" class="button bg-black" >Start Over </a>
 </div>

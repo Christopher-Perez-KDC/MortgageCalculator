@@ -18,18 +18,30 @@ namespace MortgageCalculator.Repository
             decimal insuranceMonthly = Insurance / 12;
             decimal taxesMonthly = Taxes / 12;
             decimal taxesInsurance = insuranceMonthly + taxesMonthly;
+            decimal monthlyHOA = HOA;
+
+            //Calculate PMI
+            decimal pmiRate = 0.005m; // fixed PMI rate(0.5%)
+            decimal annualPMI = loanAmount * pmiRate;
+            decimal monthlyPMI = annualPMI / 12;
+
 
             decimal monthlyPayment = loanAmount * monthlyInterestRate / (1 - (decimal)Math.Pow((double)(1 + monthlyInterestRate), (double)-totalMonths));
             MonthlyPayment = Math.Round(monthlyPayment, 2);
-            if(taxesInsurance > 0)
-            {
-                monthlyPayment = monthlyPayment + taxesInsurance;
-            }
+            monthlyPayment += taxesMonthly;
+            monthlyPayment += insuranceMonthly;
+            monthlyPayment += monthlyPMI;
+            decimal piti = monthlyPayment += monthlyPMI + monthlyHOA + taxesInsurance;
 
-            TotalPayment = Math.Round(monthlyPayment * totalMonths, 2);
+            TotalPayment = Math.Round(MonthlyPayment * totalMonths, 2);
             LoanAmount = loanAmount;
             InMonths = inMonths;
             DownAmountPercent = downPercent;
+            Taxes = taxesMonthly;
+            Insurance = insuranceMonthly;
+
+            PITI = piti;
+            PMI = Math.Round(monthlyPMI, 2); // store monthly PMI
         }
     }
 }

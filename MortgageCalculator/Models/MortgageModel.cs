@@ -15,5 +15,7 @@
         public decimal Taxes { get; set; }
         public decimal Insurance { get; set; }
         public decimal PITI {  get; set; }
+        public decimal PMI { get; set; }
+        public decimal HOA { get; set; }
     }
 }
